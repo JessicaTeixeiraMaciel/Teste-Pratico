@@ -94,7 +94,6 @@ public class Sistema {
         System.out.println("- Nome: " + nomeDoMaisVelho + ", Idade: " + idadeDoMaisVelho + " anos");
     }
 
-
     public List<Funcionario> nomesEmOrdemCrescente (List<Funcionario> lista) {
         List<String> nomesEmOrdem = new ArrayList<>();
         List<Funcionario> funcionarioEmOrdem = new ArrayList<>();
@@ -113,8 +112,6 @@ public class Sistema {
         }
         return funcionarioEmOrdem;
     }
-
-
 
     public void somarSalarios(List<Funcionario> lista) {
         BigDecimal somaDosSalarios = BigDecimal.valueOf(0.0);

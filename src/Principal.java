@@ -4,30 +4,25 @@ import java.util.*;
 
 class Principal {
     public static void main(String[] args) {
-        Sistema sistema = new Sistema();
 
+        Sistema sistema = new Sistema();
 
         List<Funcionario> listaDeFuncionarios = criarListaDeFuncionarios();
 
-
         listaDeFuncionarios.removeIf(x->x.getNome().equals("João"));
 
-
-        System.out.println("1) Lista de Funcionários\n");
+        System.out.println("1) Lista de funcionários\n");
         sistema.imprimirLista(listaDeFuncionarios);
         sistema.separador();
 
-
-        System.out.println("2) Lista de Funcionários com salários atualizados\n");
+        System.out.println("2) Lista de funcionários com salários atualizados\n");
         for (Funcionario funcionario : listaDeFuncionarios) {
           sistema.aumentarSalario(funcionario,0.1);
         }
         sistema.imprimirLista(listaDeFuncionarios);
         sistema.separador();
 
-
         sistema.agruparFuncionariosPorFuncao(listaDeFuncionarios);
-
 
         System.out.println("3) Lista de funcionários agrupados por função");
         for (String nomeDaFuncao : Sistema.pesquisarFuncoes(listaDeFuncionarios)) {
@@ -36,31 +31,25 @@ class Principal {
         }
         sistema.separador();
 
-
         System.out.println("4) Lista de Aniversariantes");
         sistema.filtrarAniversariantesDoMes(listaDeFuncionarios,10);
         sistema.filtrarAniversariantesDoMes(listaDeFuncionarios,12);
         sistema.separador();
 
-
         System.out.println("5) Funcionário mais velho");
         sistema.pesquisarFuncionarioMaisVelho(listaDeFuncionarios);
         sistema.separador();
-
 
         System.out.println("6) Lista de funcionários em ordem alfabética\n");
         sistema.imprimirLista(sistema.nomesEmOrdemCrescente(listaDeFuncionarios));
         sistema.separador();
 
-
         System.out.println("7) Total dos salários dos funcionários");
         sistema.somarSalarios(listaDeFuncionarios);
         sistema.separador();
 
-
-        System.out.println("8) Quantidade de salários minimos por funcionário\n");
+        System.out.println("8) Quantidade de salários mínimos por funcionário\n");
         sistema.calcularQuantidadeDeSalarioMinimos(listaDeFuncionarios, BigDecimal.valueOf(1212.00));
-
     }
 
     private static List<Funcionario> criarListaDeFuncionarios(){
@@ -79,6 +68,4 @@ class Principal {
 
         return funcionarioList;
     }
-
-
 }
