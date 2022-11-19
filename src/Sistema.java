@@ -8,6 +8,7 @@ import java.util.*;
 
 public class Sistema {
 
+
     public void imprimirLista(List<Funcionario> lista) {
 
         for (Funcionario funcionario : lista) {
