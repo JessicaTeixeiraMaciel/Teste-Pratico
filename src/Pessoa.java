@@ -1,12 +1,20 @@
 import java.time.LocalDate;
 
-public class Pessoa {
+public abstract class Pessoa {
     private String nome;
     private LocalDate dataNascimento;
 
     public Pessoa(String nome, LocalDate dataNascimento) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
+    }
+
+    @Override
+    public String toString() {
+        return "Pessoa{" +
+                "nome='" + nome + '\'' +
+                ", dataNascimento=" + dataNascimento +
+                '}';
     }
 
     public String getNome() {
@@ -25,11 +33,4 @@ public class Pessoa {
         this.dataNascimento = dataNascimento;
     }
 
-    @Override
-    public String toString() {
-        return "Pessoa{" +
-                "nome='" + nome + '\'' +
-                ", dataNascimento=" + dataNascimento +
-                '}';
-    }
 }
