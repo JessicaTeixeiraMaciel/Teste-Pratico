@@ -9,14 +9,6 @@ public abstract class Pessoa {
         this.dataNascimento = dataNascimento;
     }
 
-    @Override
-    public String toString() {
-        return "Pessoa{" +
-                "nome='" + nome + '\'' +
-                ", dataNascimento=" + dataNascimento +
-                '}';
-    }
-
     public String getNome() {
         return nome;
     }
