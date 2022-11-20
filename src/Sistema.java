@@ -7,18 +7,20 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class Sistema {
+    DateTimeFormatter formatarData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    NumberFormat formatarSalario = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
 
-
+    public void deletarFuncionario(String funcionario, List<Funcionario> lista){
+        lista.removeIf(x->x.getNome().equals(funcionario));
+        System.out.println(funcionario + " foi removido(a) da lista de funcionários");
+    }
     public void imprimirLista(List<Funcionario> lista) {
 
         for (Funcionario funcionario : lista) {
 
             LocalDate dataNascimento = funcionario.getDataNascimento();
-            DateTimeFormatter formatarData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             String dataNascimentoFormatada = dataNascimento.format(formatarData);
-
             var salario = new BigDecimal(String.valueOf(funcionario.getSalario()));
-            NumberFormat formatarSalario = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
 
             System.out.println(
                     "- Nome: " + funcionario.getNome() + ", Data de Nascimento: " + dataNascimentoFormatada + ", Salário: " + formatarSalario.format(salario) + ", Função: " + funcionario.getFuncao());
@@ -118,8 +120,6 @@ public class Sistema {
         for (Funcionario funcionario : lista) {
             somaDosSalarios = somaDosSalarios.add(funcionario.getSalario());
         }
-        NumberFormat formatarSalario = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
-
         System.out.println(formatarSalario.format(somaDosSalarios));
     }
 
@@ -131,7 +131,15 @@ public class Sistema {
         }
     }
 
+    public void titulo(String texto){
+        String ANSI_RESET = "\u001B[0m";
+        String ANSI_PURPLE = "\u001B[35m";
+        System.out.println(ANSI_PURPLE + texto + ANSI_RESET);
+    }
+
     public void separador() {
-        System.out.println("\n-------------------------------------------------------------------------------------------------");
+        String ANSI_RESET = "\u001B[0m";
+        String ANSI_GRAY = "\u001B[37m";
+        System.out.println(ANSI_GRAY + "\n-------------------------------------------------------------------------------------------------" + ANSI_RESET);
     }
 }

@@ -9,46 +9,49 @@ class Principal {
 
         List<Funcionario> listaDeFuncionarios = criarListaDeFuncionarios();
 
-        listaDeFuncionarios.removeIf(x->x.getNome().equals("João"));
+        sistema.titulo("1) Remover Funcionário da Lista");
+        sistema.deletarFuncionario("João",listaDeFuncionarios);
+        sistema.separador();
 
-        System.out.println("1) Lista de funcionários\n");
+        sistema.titulo("2) Lista de funcionários\n");
         sistema.imprimirLista(listaDeFuncionarios);
         sistema.separador();
 
-        System.out.println("2) Lista de funcionários com salários atualizados\n");
+        sistema.titulo("3) Lista de funcionários com salários atualizados\n");
         for (Funcionario funcionario : listaDeFuncionarios) {
           sistema.aumentarSalario(funcionario,0.1);
         }
         sistema.imprimirLista(listaDeFuncionarios);
         sistema.separador();
 
+        //MAP
         sistema.agruparFuncionariosPorFuncao(listaDeFuncionarios);
 
-        System.out.println("3) Lista de funcionários agrupados por função");
+        sistema.titulo("4) Lista de funcionários agrupados por função");
         for (String nomeDaFuncao : Sistema.pesquisarFuncoes(listaDeFuncionarios)) {
             System.out.println("\nLista de " + nomeDaFuncao);
             sistema.imprimirLista(sistema.agruparFuncionariosPorFuncao(listaDeFuncionarios).get(nomeDaFuncao));
         }
         sistema.separador();
 
-        System.out.println("4) Lista de Aniversariantes");
+        sistema.titulo("5) Lista de Aniversariantes");
         sistema.filtrarAniversariantesDoMes(listaDeFuncionarios,10);
         sistema.filtrarAniversariantesDoMes(listaDeFuncionarios,12);
         sistema.separador();
 
-        System.out.println("5) Funcionário mais velho");
+        sistema.titulo("6) Funcionário mais velho");
         sistema.pesquisarFuncionarioMaisVelho(listaDeFuncionarios);
         sistema.separador();
 
-        System.out.println("6) Lista de funcionários em ordem alfabética\n");
+        sistema.titulo("7) Lista de funcionários em ordem alfabética\n");
         sistema.imprimirLista(sistema.nomesEmOrdemCrescente(listaDeFuncionarios));
         sistema.separador();
 
-        System.out.println("7) Total dos salários dos funcionários");
+        sistema.titulo("8) Total dos salários dos funcionários");
         sistema.somarSalarios(listaDeFuncionarios);
         sistema.separador();
 
-        System.out.println("8) Quantidade de salários mínimos por funcionário\n");
+        sistema.titulo("9) Quantidade de salários mínimos por funcionário\n");
         sistema.calcularQuantidadeDeSalarioMinimos(listaDeFuncionarios, BigDecimal.valueOf(1212.00));
     }
 
